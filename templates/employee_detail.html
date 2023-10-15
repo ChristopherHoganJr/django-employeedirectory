@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Django Basics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body class="bg-white">
+    <div class="container pt-5 mx-auto flex flex-col gap-3">
+      <a href="{% url 'home' %}" class="px-4 py-4 border-2 border-green-200 m"
+        >Back to home</a
+      >
+      <h1 class="">Employee Detail</h1>
+      <div>
+        <h2>{{ employee.first_name }} {{ employee.last_name }}</h2>
+        <p>Job: {{ employee.designation }}</p>
+        <p>{{ employee.phone_number }}</p>
+        <img src="{{ employee.photo.url }}" alt="{{employee.first_name}}" />
+      </div>
+    </div>
+  </body>
+</html>

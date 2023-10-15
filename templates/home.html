@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Django Basics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body class="bg-white">
+    <div class="container pt-5 mx-auto">
+      <h1 class="">Employee List</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Full Name</th>
+            <th>Designation</th>
+            <th>Phone Number</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for employee in employees %}
+          <tr>
+            <th>{{ forloop.counter }}</th>
+            <th>
+              <a href="{% url 'employee_detail' employee.id %}"
+                >{{ employee.first_name }} {{employee.last_name}}</a
+              >
+            </th>
+            <th>{{ employee.designation }}</th>
+            <th>{{ employee.phone_number }}</th>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <!-- <img src="{% static 'images/lofiViking.png' %}" alt="" /> -->
+    </div>
+  </body>
+</html>
